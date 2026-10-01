@@ -106,8 +106,7 @@ export async function analyzeRepo(repoUrl) {
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: userMessage }
         ],
-        temperature: 0.8,
-        response_format: { type: "json_object" }
+        temperature: 0.8
       })
     });
 
@@ -118,7 +117,10 @@ export async function analyzeRepo(repoUrl) {
 
     const groqData = await groqRes.json();
     const resultString = groqData.choices[0].message.content;
-    const aiInsights = JSON.parse(resultString);
+    
+    // Clean potential markdown blocks
+    const cleanJsonString = resultString.replace(/```json/gi, '').replace(/```/g, '').trim();
+    const aiInsights = JSON.parse(cleanJsonString);
 
     // Return both AI insights AND raw GitHub data for our charts
     return {
