@@ -6,6 +6,8 @@
   **Brutal, AI-powered insights & metrics for your codebase.**  
   *Built for the Open Source AI Hackathon.*
 
+  ### 🌐 [Live Demo: repo-wrapped.onrender.com](https://repo-wrapped.onrender.com/)
+
   [![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
   [![Vite](https://img.shields.io/badge/Vite-8-purple?style=for-the-badge&logo=vite)](https://vitejs.dev/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
