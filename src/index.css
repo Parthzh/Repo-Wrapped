@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #3C5A4D;
+  --color-cream: #F7F5EC;
+  --color-coral: #E17062;
+  --color-mustard: #E6AE3C;
+  --color-softblue: #7BA2C3;
+  --color-ink: #1A1A1A;
+
+  --font-display: 'Oswald', 'Space Grotesk', 'Outfit', sans-serif;
+  --font-body: 'IBM Plex Mono', 'Inter', monospace;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  
+  /* Inviting subtle dot grid pattern */
+  background-image: radial-gradient(rgba(60, 90, 77, 0.15) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+/* Neo-Brutalism Utilities */
+@utility neo-shadow {
+  box-shadow: 4px 4px 0px var(--color-ink);
+}
+
+@utility neo-border {
+  border: 2px solid var(--color-ink);
+}
+
+@utility neo-button-active {
+  &:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--color-ink);
+  }
+}
