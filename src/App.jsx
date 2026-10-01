@@ -17,6 +17,19 @@ function App() {
     e.preventDefault()
     if (!repoUrl.trim()) return
 
+    // Client-side rate limiting (3 requests per minute)
+    const now = Date.now();
+    const limits = JSON.parse(localStorage.getItem('repoLimits') || '[]');
+    const validLimits = limits.filter(timestamp => now - timestamp < 60000);
+    
+    if (validLimits.length >= 3) {
+      setError("Whoa there, speed racer! You've hit the rate limit. Please wait 60 seconds.");
+      return;
+    }
+    
+    validLimits.push(now);
+    localStorage.setItem('repoLimits', JSON.stringify(validLimits));
+
     setIsLoading(true)
     setError('')
     try {
